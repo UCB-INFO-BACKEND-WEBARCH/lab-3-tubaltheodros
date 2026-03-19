@@ -114,12 +114,10 @@ class ItemList(MethodView):
         #   Test: {"name": "Ghost", "price": 5, "store_id": 999}
         #         should return 404
         # --------------------------------------------------
-    # TODO 1: Business Validation
         if not store_exists(item_data["store_id"]):
             abort(404, description="Store not found.")
           
             # --------------------------------------------------
-        # TODO 4: Data Integrity — No duplicate names per store
       # TODO 4: Data Integrity (Case-insensitive duplicate check)
         if duplicate_name_in_store(item_data["name"], item_data["store_id"]):
             abort(409, description="Item with this name already exists in this store.")
